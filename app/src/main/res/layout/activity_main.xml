@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.sonhnlab.pc.zeamo.MainActivity">
+    tools:context="com.sonhnlab.pc.zeamo.activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
