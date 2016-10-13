@@ -18,7 +18,9 @@ android {
         }
     }
     sourceSets {
-        main { res.srcDirs = ['src/main/res', 'src/main/res-screen', 'src/main/res-screen/login'] }
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-screen', 'src/main/res-screen/login', 'src/main/res-screen/login/welcome', 'src/main/res-screen/login/create-account', 'src/main/res-screen/login/login']
+        }
     }
 }
 

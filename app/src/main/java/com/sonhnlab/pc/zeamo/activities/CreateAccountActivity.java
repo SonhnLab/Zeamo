@@ -1,17 +1,19 @@
 package com.sonhnlab.pc.zeamo.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class SplashActivity extends AppCompatActivity {
+import com.sonhnlab.pc.zeamo.R;
+
+/**
+ * Created by PC on 10/13/2016.
+ */
+
+public class CreateAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        startActivity(intent);
-        finish();
+        setContentView(R.layout.activity_main);
     }
 }
