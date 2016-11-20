@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sonhnlab.pc.core.viewmodel.WelcomeViewModel"/>
+
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.WelcomeActivity">
+
+        <ImageView
+            android:id="@+id/im_welcome_btn_create_account"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_above="@+id/im_welcome_text_login"
+            android:layout_marginBottom="58dp"
+            android:onClick="@{() -> viewModel.showCreateAccountPageCommand()}"
+            android:src="@drawable/ic_btn_create_account"/>
+
+        <ImageView
+            android:id="@+id/im_welcome_text_login"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="110dp"
+            android:onClick="@{() -> viewModel.showLoginPageCommand()}"
+            android:src="@drawable/text"/>
+
+    </RelativeLayout>
+
+</layout>
