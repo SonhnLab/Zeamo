@@ -1,6 +1,5 @@
 package com.sonhnlab.pc.zeamo.activities;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,8 +20,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     //region Properties
 
-    private Toolbar mToolbar;
-
     private TextView mToolbarTitle, mUsername, mPassword;
 
     //endregion
@@ -35,25 +32,21 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         super.onCreate(savedInstanceState);
         setBindingContentView(R.layout.activity_login, BR.viewModel);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar_login);
-        setSupportActionBar(mToolbar);
+        setupToolbar();
+    }
+
+    //endregion
+
+    //region Private method
+
+    private void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_login);
+        toolbar.setNavigationIcon(R.drawable.ic_btn_back);
+        setSupportActionBar(toolbar);
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mToolbarTitle = (TextView) findViewById(R.id.tv_toolbar_title);
-        mToolbarTitle.setText("Login");
-
-        Typeface OpenSans = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
-        mToolbarTitle.setTypeface(OpenSans);
-
-        mUsername = (TextView) findViewById(R.id.edt_username_login);
-        mUsername.setTypeface(OpenSans);
-
-        mPassword = (TextView) findViewById(R.id.edt_password_login);
-        mPassword.setTypeface(OpenSans);
-
-        mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_btn_back));
-
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

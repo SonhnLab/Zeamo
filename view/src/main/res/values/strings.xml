@@ -3,4 +3,7 @@
 
     <!-- Login Screen -->
     <string name="toolbar_login_title">Login</string>
+    <string name="edt_login_hint_username">Username</string>
+    <string name="edt_login_hint_password">Password</string>
+    <string name="tv_login_forgot_password">Forgot password?</string>
 </resources>

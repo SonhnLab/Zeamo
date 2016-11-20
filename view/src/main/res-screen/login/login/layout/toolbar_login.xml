@@ -3,6 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sonhnlab.pc.core.viewmodel.LoginViewModel"/>
+
+    </data>
+
         <android.support.v7.widget.Toolbar
 
             android:id="@+id/toolbar_login"
@@ -19,7 +27,8 @@
                 android:gravity="center"
                 android:text="@string/toolbar_login_title"
                 android:textColor="#093478"
-                android:textSize="24sp"/>
+                android:textSize="24sp"
+                app:font="@{@string/open_sans_regular}"/>
 
         </android.support.v7.widget.Toolbar>
 

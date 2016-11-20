@@ -29,7 +29,7 @@ public class FontHelper {
     public static Typeface getTypeface(Context context, String name) {
         Typeface typeface = sCache.get(name);
         if (typeface == null) {
-            typeface = Typeface.createFromAsset(context.getAssets(), "font/" + name);
+            typeface = Typeface.createFromAsset(context.getAssets(), "fonts/" + name);
             sCache.put(name, typeface);
         }
         return typeface;
