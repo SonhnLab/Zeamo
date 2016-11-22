@@ -2,10 +2,14 @@ package com.sonhnlab.pc.zeamo.activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sonhnlab.pc.core.BR;
+import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseActivity;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
 import com.sonhnlab.pc.zeamo.App;
@@ -33,6 +37,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         setBindingContentView(R.layout.activity_login, BR.viewModel);
 
         setupToolbar();
+        setupParent(findViewById(R.id.layout_login));
     }
 
     //endregion
@@ -53,6 +58,29 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+    }
+
+    //endregion
+
+    //region Public method
+
+    public void setupParent(View view) {
+        //Set up touch listener for non-text box views to hide keyboard.
+        if(!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    KeyboardHelper.hideSoftKeyboardOnTap(LoginActivity.this);
+                    return false;
+                }
+            });
+        }
+        //If a layout container, iterate over children
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
     }
 
     //endregion
