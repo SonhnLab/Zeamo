@@ -64,7 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/ic_btn_sign_in"/>
+                android:clickable="true"
+                android:src="@drawable/btn_sign_in"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -83,15 +84,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_gravity="start"
-                    android:src="@drawable/ic_btn_sign_in_facebook"/>
+                    android:clickable="true"
+                    android:src="@drawable/btn_sign_in_facebook"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_gravity="end"
-                    android:src="@drawable/ic_btn_sign_in_linked_in"/>
+                    android:clickable="true"
+                    android:src="@drawable/btn_sign_in_linked"/>
 
             </LinearLayout>
 
@@ -99,10 +100,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
-                android:textSize="22sp"
+                android:clickable="true"
+                android:gravity="center"
                 android:text="@string/tv_login_forgot_password"
                 android:textColor="@color/colorPrimary"
-                android:gravity="center"
+                android:textSize="22sp"
                 app:font="@{@string/open_sans_regular}"/>
 
         </LinearLayout>
