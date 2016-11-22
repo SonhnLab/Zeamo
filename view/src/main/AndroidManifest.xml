@@ -38,6 +38,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/LoginTheme">
         </activity>
+        <activity
+            android:name=".activities.CreateAccountActivity"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme">
+        </activity>
     </application>
 
 </manifest>

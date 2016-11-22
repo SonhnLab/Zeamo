@@ -1,10 +1,12 @@
 package com.sonhnlab.pc.core.viewmodel;
 
+import com.sonhnlab.pc.core.view.INavigator;
+
 /**
  * Created by SonhnLab on 11/20/2016.
  */
 
-public class CreateAccountViewModel {
+public class CreateAccountViewModel extends BaseViewModel{
 
     //region Properties
 
@@ -18,11 +20,33 @@ public class CreateAccountViewModel {
 
     //region Constructors
 
+    public CreateAccountViewModel(INavigator navigator) {
+        super(navigator);
+    }
 
     //endregion
 
     //region Lifecycle
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     //endregion
 

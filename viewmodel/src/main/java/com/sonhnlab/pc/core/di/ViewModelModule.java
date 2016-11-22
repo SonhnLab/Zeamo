@@ -1,6 +1,7 @@
 package com.sonhnlab.pc.core.di;
 
 import com.sonhnlab.pc.core.view.INavigator;
+import com.sonhnlab.pc.core.viewmodel.CreateAccountViewModel;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
 import com.sonhnlab.pc.core.viewmodel.WelcomeViewModel;
 
@@ -28,6 +29,12 @@ public class ViewModelModule {
     @Singleton
     LoginViewModel providesLoginViewModel (INavigator navigator) {
         return new LoginViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    CreateAccountViewModel providesCreateAccountViewModel (INavigator navigator) {
+        return new CreateAccountViewModel(navigator);
     }
 
     //endregion

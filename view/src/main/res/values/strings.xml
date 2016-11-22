@@ -6,4 +6,12 @@
     <string name="edt_login_hint_username">Username</string>
     <string name="edt_login_hint_password">Password</string>
     <string name="tv_login_forgot_password">Forgot password?</string>
+
+    <!-- Create Account Screen -->
+    <string name="toolbar_create_account_title">Create Account</string>
+    <string name="edt_create_account_hint_username">Username</string>
+    <string name="edt_create_account_hint_password">Password</string>
+    <string name="edt_create_account_hint_reenter_password">Re-enter Password</string>
+    <string name="tv_create_account_agree">I agree to the <b>terms and conditions</b>
+        and have read the <b>privacy policy</b></string>
 </resources>

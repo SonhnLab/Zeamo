@@ -24,8 +24,9 @@
             android:layout_height="60dp"
             android:layout_above="@+id/im_welcome_text_login"
             android:layout_marginBottom="58dp"
+            android:clickable="true"
             android:onClick="@{() -> viewModel.showCreateAccountPageCommand()}"
-            android:src="@drawable/ic_btn_create_account"/>
+            android:src="@drawable/btn_create_account"/>
 
         <ImageView
             android:id="@+id/im_welcome_text_login"

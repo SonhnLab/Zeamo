@@ -24,21 +24,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="32dp">
+            android:padding="@dimen/padding_login">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/box3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/box3"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/edt_login_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/edt_login_hint_username"
                     android:inputType="text"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding_login_box"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/colorPrimary"
                     android:textSize="22sp"
@@ -48,28 +51,29 @@
                     android:id="@+id/edt_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/edt_login_username"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/edt_login_hint_password"
                     android:inputType="textPassword"
-                    android:padding="16dp"
+                    android:padding="@dimen/padding_login_box"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/colorPrimary"
                     android:textSize="22sp"
                     app:font="@{@string/open_sans_regular}"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_height="@dimen/btn_login_height"
+                android:layout_marginTop="@dimen/btn_login_marginTop"
                 android:clickable="true"
                 android:src="@drawable/btn_sign_in"/>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/btn_login_height"
                 android:layout_marginBottom="4dp"
                 android:layout_marginTop="6dp"
                 android:src="@drawable/or"/>
@@ -82,14 +86,14 @@
                 <ImageView
                     android:id="@+id/im_login_btn_sign_in_facebook"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/btn_login_height"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:src="@drawable/btn_sign_in_facebook"/>
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/btn_login_height"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:src="@drawable/btn_sign_in_linked"/>
@@ -99,7 +103,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="@dimen/tv_login_marginTop"
                 android:clickable="true"
                 android:gravity="center"
                 android:text="@string/tv_login_forgot_password"
