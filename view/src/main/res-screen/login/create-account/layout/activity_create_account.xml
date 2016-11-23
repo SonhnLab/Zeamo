@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:hint="@string/all_hint_username"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:padding="@dimen/padding_all_edt_box"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/colorPrimary"
@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/tv_create_account_agree"
+                    android:text="@string/create_account_tv_agree"
                     android:textSize="@dimen/textSize_create_account_agree"
                     android:textColor="@android:color/black"
                     app:font="@{@string/open_sans_regular}"/>

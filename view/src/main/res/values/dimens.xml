@@ -31,4 +31,8 @@
     <dimen name="textSize_create_account_agree">14sp</dimen>
     <dimen name="marginBottom_reenter_password">5dp</dimen>
 
+    <!-- Forgot Password Screen -->
+    <dimen name="marginTop_forgot_tv">16dp</dimen>
+    <dimen name="textSize_forgot_tv">18sp</dimen>
+
 </resources>

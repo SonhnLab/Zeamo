@@ -7,6 +7,7 @@ import com.sonhnlab.pc.core.utility.Constants;
 import com.sonhnlab.pc.core.view.BaseApplication;
 import com.sonhnlab.pc.core.view.INavigator;
 import com.sonhnlab.pc.zeamo.activities.CreateAccountActivity;
+import com.sonhnlab.pc.zeamo.activities.ForgotPasswordActivity;
 import com.sonhnlab.pc.zeamo.activities.LoginActivity;
 import com.sonhnlab.pc.zeamo.activities.WelcomeActivity;
 
@@ -42,6 +43,7 @@ public class App extends BaseApplication {
         navigator.configure(Constants.WELCOME_PAGE, WelcomeActivity.class);
         navigator.configure(Constants.LOGIN_PAGE, LoginActivity.class);
         navigator.configure(Constants.CREATE_ACCOUNT_PAGE, CreateAccountActivity.class);
+        navigator.configure(Constants.FORGOT_PASSWORD_PAGE, ForgotPasswordActivity.class);
 
         sAppComponent = DaggerAppComponent.builder()
                 .appModule(appModule)

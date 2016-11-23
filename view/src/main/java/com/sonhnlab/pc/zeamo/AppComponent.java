@@ -2,6 +2,7 @@ package com.sonhnlab.pc.zeamo;
 
 import com.sonhnlab.pc.core.di.ViewModelModule;
 import com.sonhnlab.pc.zeamo.activities.CreateAccountActivity;
+import com.sonhnlab.pc.zeamo.activities.ForgotPasswordActivity;
 import com.sonhnlab.pc.zeamo.activities.LoginActivity;
 import com.sonhnlab.pc.zeamo.activities.WelcomeActivity;
 
@@ -20,4 +21,5 @@ public interface AppComponent {
     void inject(WelcomeActivity welcomeActivity);
     void inject(LoginActivity loginActivity);
     void inject(CreateAccountActivity createAccountActivity);
+    void inject(ForgotPasswordActivity forgotPasswordActivity);
 }

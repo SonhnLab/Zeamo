@@ -2,6 +2,7 @@ package com.sonhnlab.pc.core.di;
 
 import com.sonhnlab.pc.core.view.INavigator;
 import com.sonhnlab.pc.core.viewmodel.CreateAccountViewModel;
+import com.sonhnlab.pc.core.viewmodel.ForgotPasswordViewModel;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
 import com.sonhnlab.pc.core.viewmodel.WelcomeViewModel;
 
@@ -35,6 +36,12 @@ public class ViewModelModule {
     @Singleton
     CreateAccountViewModel providesCreateAccountViewModel (INavigator navigator) {
         return new CreateAccountViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    ForgotPasswordViewModel providesForgotPasswordViewModel (INavigator navigator) {
+        return new ForgotPasswordViewModel(navigator);
     }
 
     //endregion

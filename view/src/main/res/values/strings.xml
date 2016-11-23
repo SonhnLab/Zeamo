@@ -17,8 +17,13 @@
 
     <!--Create Account String define-->
     <string name="create_account_toolbar_title">Create Account</string>
-    <string name="tv_create_account_agree">I agree to the <b>terms and conditions</b>
+    <string name="create_account_tv_agree">I agree to the <b>terms and conditions</b>
         and have read the <b>privacy policy</b></string>
     <string name="create_account_image_description">Button</string>
+
+    <!--Forgot Password String define-->
+    <string name="forgot_toolbar_title">Forgot Password</string>
+    <string name="forgot_hint_enter">Enter username</string>
+    <string name="forgot_tv_description">To reset your password, enter your\nemail and we\'ll send you\ninformation on how to reset it.</string>
 
 </resources>
