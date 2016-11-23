@@ -17,14 +17,6 @@ import com.sonhnlab.pc.zeamo.databinding.ActivityWelcomeBinding;
 
 public class WelcomeActivity extends BaseActivity<ActivityWelcomeBinding, WelcomeViewModel> {
 
-    //region Properties
-
-    ImageView mButtonCreateAccount;
-
-    ImageView mTextLogin;
-
-    //endregion
-
     //region Override method
 
     @Override
@@ -32,34 +24,6 @@ public class WelcomeActivity extends BaseActivity<ActivityWelcomeBinding, Welcom
         App.sharedComponent().inject(this);
         super.onCreate(savedInstanceState);
         setBindingContentView(R.layout.activity_welcome, BR.viewModel);
-
-//        mTextLogin = (ImageView) findViewById(R.id.im_text_login_welcome);
-//        mTextLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//            }
-//        });
-//
-//        mButtonCreateAccount = (ImageView) findViewById(R.id.im_button_create_account_welcome);
-//        mButtonCreateAccount.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//            }
-//        });
-    }
-
-    //endregion
-
-    //region Private method
-
-    private void goForwardAnimation() {
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     //endregion

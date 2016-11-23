@@ -24,7 +24,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     //region Properties
 
-    private TextView mToolbarTitle, mUsername, mPassword;
+
 
     //endregion
 

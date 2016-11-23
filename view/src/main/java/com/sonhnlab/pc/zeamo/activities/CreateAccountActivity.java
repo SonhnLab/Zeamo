@@ -35,7 +35,7 @@ public class CreateAccountActivity extends BaseActivity<ActivityCreateAccountBin
         setupToolbar();
         setupParent(findViewById(R.id.layout_create_account));
 
-        final ImageView checkBoxAgree = (ImageView) findViewById(R.id.checkbox_agree);
+        final ImageView checkBoxAgree = (ImageView) findViewById(R.id.checkbox_create_account_agree);
         checkBoxAgree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

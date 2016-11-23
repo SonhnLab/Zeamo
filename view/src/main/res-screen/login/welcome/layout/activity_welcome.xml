@@ -12,7 +12,6 @@
     </data>
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -21,21 +20,23 @@
         <ImageView
             android:id="@+id/im_welcome_btn_create_account"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/height_all_btn"
             android:layout_above="@+id/im_welcome_text_login"
-            android:layout_marginBottom="58dp"
+            android:layout_marginBottom="@dimen/marginBottom_welcome_btn"
             android:clickable="true"
             android:onClick="@{() -> viewModel.showCreateAccountPageCommand()}"
-            android:src="@drawable/btn_create_account"/>
+            android:src="@drawable/btn_create_account"
+            android:contentDescription="@string/welcome_image_description"/>
 
         <ImageView
             android:id="@+id/im_welcome_text_login"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="@dimen/height_welcome_text"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="110dp"
+            android:layout_marginBottom="@dimen/marginBottom_welcome_text"
             android:onClick="@{() -> viewModel.showLoginPageCommand()}"
-            android:src="@drawable/text"/>
+            android:src="@drawable/text"
+            android:contentDescription="@string/welcome_image_description"/>
 
     </RelativeLayout>
 

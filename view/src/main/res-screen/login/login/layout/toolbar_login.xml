@@ -20,14 +20,14 @@
             app:theme="@style/ToolBarTheme">
 
             <TextView
-                android:id="@+id/tv_toolbar_title_login"
+                android:id="@+id/tv_login_toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/toolbar_login_title"
-                android:textColor="#093478"
-                android:textSize="24sp"
+                android:text="@string/login_toolbar_title"
+                android:textColor="@color/toolbar_title"
+                android:textSize="@dimen/textSize_all_title"
                 app:font="@{@string/open_sans_regular}"/>
 
         </android.support.v7.widget.Toolbar>
