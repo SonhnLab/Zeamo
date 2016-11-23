@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     
     <color name="toolbar_title">#093478</color>
+    <color name="validate_error">#F44336</color>
 </resources>

@@ -10,8 +10,10 @@
     <dimen name="padding_all_edt_box">16dp</dimen>
     <dimen name="textSize_all_title">24sp</dimen>
     <dimen name="textSize_all_edt_box">22sp</dimen>
+    <dimen name="textSize_all_validate_error">18sp</dimen>
     <dimen name="marginTop_all_btn_login">30dp</dimen>
     <dimen name="marginTop_all_text_login">48dp</dimen>
+    <dimen name="marginBottom_all_validate_error">16dp</dimen>
 
     <dimen name="back_navigation_icon_size" tools:override="true">48dp</dimen>
 

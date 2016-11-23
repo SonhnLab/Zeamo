@@ -6,6 +6,7 @@
     <string name="all_hint_username">Username</string>
     <string name="all_hint_password">Password</string>
     <string name="all_hint_reenter_password">Re-enter Password</string>
+    <string name="all_validate_username">Please enter a valid email.</string>
 
     <!--Welcome String define-->
     <string name="welcome_image_description">Button</string>
@@ -24,6 +25,7 @@
     <!--Forgot Password String define-->
     <string name="forgot_toolbar_title">Forgot Password</string>
     <string name="forgot_hint_enter">Enter username</string>
-    <string name="forgot_tv_description">To reset your password, enter your\nemail and we\'ll send you\ninformation on how to reset it.</string>
+    <string name="forgot_tv_description">To reset your password, enter your\n
+        email and we\'ll send you\ninformation on how to reset it.</string>
 
 </resources>
