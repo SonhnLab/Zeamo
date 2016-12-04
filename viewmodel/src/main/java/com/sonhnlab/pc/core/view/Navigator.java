@@ -178,22 +178,4 @@ public class Navigator implements INavigator{
         return mBusyIndicator != null && mBusyIndicator.isShowing();
     }
 
-    @Override
-    public void showOptionsMessage(String title, String[] options, final IOptionCallback callback) {
-        if (mApplication.isCurrentActivityAvailable()) {
-            Activity currentActivity =  getApplication().getCurrentActivity();
-
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(currentActivity, android.R.layout.simple_list_item_1, options);
-            new AlertDialog.Builder(currentActivity, R.style.MessageOptionsDialog).setTitle(title)
-                    .setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            callback.onItemClick(i);
-                        }
-                    })
-                    .show();
-
-        }
-    }
-
 }

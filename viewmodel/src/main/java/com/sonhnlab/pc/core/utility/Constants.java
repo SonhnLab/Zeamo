@@ -23,7 +23,11 @@ public class Constants {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({
-            WELCOME_PAGE, CREATE_ACCOUNT_PAGE, LOGIN_PAGE, FORGOT_PASSWORD_PAGE
+            WELCOME_PAGE,
+            CREATE_ACCOUNT_PAGE,
+            LOGIN_PAGE,
+            FORGOT_PASSWORD_PAGE,
+            MAIN_PAGE
 
     })
     public @interface PageKey {}
@@ -32,6 +36,7 @@ public class Constants {
     public static final int CREATE_ACCOUNT_PAGE = 1;
     public static final int LOGIN_PAGE = 2;
     public static final int FORGOT_PASSWORD_PAGE = 3;
+    public static final int MAIN_PAGE = 5;
 
     //endregion
 

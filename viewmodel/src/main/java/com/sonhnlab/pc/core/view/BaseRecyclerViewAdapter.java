@@ -2,7 +2,7 @@ package com.sonhnlab.pc.core.view;
 
 import android.support.v7.widget.RecyclerView;
 
-import com.sonhnlab.pc.core.viewmodel.BaseViewModel;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 /**
  * Created by SonhnLab on 11/20/2016.

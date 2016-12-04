@@ -10,7 +10,6 @@ import com.sonhnlab.pc.zeamo.App;
 import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.databinding.ActivityWelcomeBinding;
 
-
 /**
  * Created by PC on 10/13/2016.
  */

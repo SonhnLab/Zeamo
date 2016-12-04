@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.sonhnlab.pc.core.viewmodel.BaseViewModel;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 

@@ -6,13 +6,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.sonhnlab.pc.core.BR;
 import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseActivity;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
 import com.sonhnlab.pc.zeamo.App;
+import com.sonhnlab.pc.core.BR;
 import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.databinding.ActivityLoginBinding;
 
@@ -24,7 +26,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     //region Properties
 
+    private EditText mEmail, mPassword;
 
+    private TextView mValidate;
+
+    ImageView mSignInButton;
+
+    LinearLayout mLayout;
 
     //endregion
 

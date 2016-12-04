@@ -27,7 +27,20 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_all_login">
 
+            <TextView
+                android:id="@+id/tv_login_validate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginBottom_all_validate_error"
+                android:gravity="center"
+                android:text="@string/all_validate_username"
+                android:textColor="@color/validate_error"
+                android:textSize="@dimen/textSize_all_validate_error"
+                android:visibility="gone"
+                app:font="@{@string/open_sans_regular}"/>
+
             <LinearLayout
+                android:id="@+id/layout_login_edt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/box3"
@@ -68,6 +81,7 @@
                 android:layout_height="@dimen/height_all_btn"
                 android:layout_marginTop="@dimen/marginTop_all_btn_login"
                 android:clickable="true"
+                android:onClick="@{() -> viewModel.showMainPageCommand()}"
                 android:contentDescription="@string/login_image_description"
                 android:src="@drawable/btn_sign_in"/>
 

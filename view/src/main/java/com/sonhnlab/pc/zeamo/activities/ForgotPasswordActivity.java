@@ -29,7 +29,7 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
 
     //region Properties
 
-    private EditText mEmailText;
+    private EditText mEmail;
 
     private TextView mValidate;
 
@@ -47,7 +47,7 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
         super.onCreate(savedInstanceState);
         setBindingContentView(R.layout.activity_forgot_password, BR.viewModel);
 
-        mEmailText = (EditText) findViewById(R.id.edt_forgot);
+        mEmail = (EditText) findViewById(R.id.edt_forgot);
         mValidate = (TextView) findViewById(R.id.tv_forgot_validate);
         mSubmitButton = (ImageView) findViewById(R.id.btn_forgot_submit);
         mLayout = (LinearLayout) findViewById(R.id.layout_forgot_edt);
@@ -109,7 +109,7 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
     public boolean validate() {
         boolean valid = true;
 
-        String email = mEmailText.getText().toString();
+        String email = mEmail.getText().toString();
 
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mValidate.setVisibility(View.VISIBLE);
@@ -127,7 +127,7 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
         mValidate.setVisibility(View.GONE);
         finish();
         Toast.makeText(getApplicationContext(), "Instruction to reset password have been emailed to "
-                + mEmailText.getText().toString()
+                + mEmail.getText().toString()
                 + ". Please check your email for these next steps.", Toast.LENGTH_LONG).show();
     }
 

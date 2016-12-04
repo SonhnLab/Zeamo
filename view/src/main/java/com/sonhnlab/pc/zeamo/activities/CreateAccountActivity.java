@@ -1,22 +1,21 @@
 package com.sonhnlab.pc.zeamo.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.sonhnlab.pc.core.BR;
 import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseActivity;
 import com.sonhnlab.pc.core.viewmodel.CreateAccountViewModel;
 import com.sonhnlab.pc.zeamo.App;
+import com.sonhnlab.pc.core.BR;
 import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.databinding.ActivityCreateAccountBinding;
+
 
 /**
  * Created by PC on 10/13/2016.
@@ -71,7 +70,7 @@ public class CreateAccountActivity extends BaseActivity<ActivityCreateAccountBin
 
     public void setupParent(View view) {
         //Set up touch listener for non-text box views to hide keyboard.
-        if(!(view instanceof EditText)) {
+        if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
                     KeyboardHelper.hideSoftKeyboardOnTap(CreateAccountActivity.this);

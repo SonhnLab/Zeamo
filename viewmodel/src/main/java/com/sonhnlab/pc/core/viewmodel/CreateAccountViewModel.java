@@ -1,12 +1,13 @@
 package com.sonhnlab.pc.core.viewmodel;
 
 import com.sonhnlab.pc.core.view.INavigator;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 /**
  * Created by SonhnLab on 11/20/2016.
  */
 
-public class CreateAccountViewModel extends BaseViewModel{
+public class CreateAccountViewModel extends BaseViewModel {
 
     //region Properties
 

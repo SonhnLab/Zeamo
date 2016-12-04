@@ -1,15 +1,27 @@
 <resources>
-    <!--App String define-->
+    <!--Define App String.-->
     <string name="app_name">Zeamo</string>
+    <string name="image_description">Image</string>
+    <!--End Define App String.-->
 
-    <!--All String define-->
+    <!--Define All String.-->
     <string name="all_hint_username">Username</string>
     <string name="all_hint_password">Password</string>
     <string name="all_hint_reenter_password">Re-enter Password</string>
     <string name="all_validate_username">Please enter a valid email.</string>
+    <!--End Define All String.-->
 
-    <!--Welcome String define-->
+    <!--Define Main Screen.-->
+    <string name="search">Search</string>
+    <string name="bookings">Bookings</string>
+    <string name="favorites">Favorites</string>
+    <string name="insurance">Insurance</string>
+    <string name="account">Account</string>
+    <!--End Define Main Screen.-->
+
+    <!--Define Welcome String.-->
     <string name="welcome_image_description">Button</string>
+    <!--End Define Welcome String.-->
     
     <!--Login String define-->
     <string name="login_toolbar_title">Login</string>

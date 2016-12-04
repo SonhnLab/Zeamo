@@ -1,6 +1,7 @@
 package com.sonhnlab.pc.core.viewmodel;
 
 import com.sonhnlab.pc.core.view.INavigator;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 /**
  * Created by SonhnLab on 11/23/2016.

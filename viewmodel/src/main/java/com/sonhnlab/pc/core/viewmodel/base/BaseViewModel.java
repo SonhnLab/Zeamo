@@ -1,4 +1,4 @@
-package com.sonhnlab.pc.core.viewmodel;
+package com.sonhnlab.pc.core.viewmodel.base;
 
 import android.app.Activity;
 import android.databinding.BaseObservable;
@@ -69,6 +69,19 @@ public abstract class BaseViewModel extends BaseObservable implements IViewModel
     @Override
     public void onDestroy() {
 
+    }
+
+    @Override
+    public void onResult(int requestCode) {
+
+    }
+
+    //endregion
+
+    //region Command
+
+    public void goBackCommand() {
+        getNavigator().goBack();
     }
 
     //endregion

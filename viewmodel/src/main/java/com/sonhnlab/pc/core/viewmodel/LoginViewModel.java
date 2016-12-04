@@ -2,12 +2,13 @@ package com.sonhnlab.pc.core.viewmodel;
 
 import com.sonhnlab.pc.core.utility.Constants;
 import com.sonhnlab.pc.core.view.INavigator;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 /**
  * Created by SonhnLab on 11/20/2016.
  */
 
-public class LoginViewModel extends BaseViewModel{
+public class LoginViewModel extends BaseViewModel {
 
     //region Properties
 
@@ -61,6 +62,10 @@ public class LoginViewModel extends BaseViewModel{
 
     public void showForgotPasswordPageCommand() {
         getNavigator().navigateTo(Constants.FORGOT_PASSWORD_PAGE);
+    }
+
+    public void showMainPageCommand() {
+        getNavigator().navigateTo(Constants.MAIN_PAGE);
     }
 
     //endregion

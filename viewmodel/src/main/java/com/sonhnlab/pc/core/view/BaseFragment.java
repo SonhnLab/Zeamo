@@ -1,14 +1,15 @@
 package com.sonhnlab.pc.core.view;
 
-import android.app.Fragment;
-import android.databinding.DataBindingUtil;
+import android.app.Activity;
+import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.support.v4.app.Fragment;
+import android.view.Menu;
 
-import com.sonhnlab.pc.core.viewmodel.BaseViewModel;
+import com.sonhnlab.pc.core.helper.Validator;
+import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -18,14 +19,26 @@ import javax.inject.Inject;
  * Created by SonhnLab on 11/20/2016.
  */
 
-public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> extends Fragment {
+public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> extends Fragment implements RefreshDataListener {
 
     //region Properties
 
-    protected B mViewDataBinding;
+    private B mViewDataBinding;
 
     @Inject
     protected V mViewModel;
+
+    //endregion
+
+    //region Getter and Setter
+
+    public B getViewDataBinding() {
+        return mViewDataBinding;
+    }
+
+    public void setViewDataBinding(B viewDataBinding) {
+        mViewDataBinding = viewDataBinding;
+    }
 
     //endregion
 
@@ -35,25 +48,27 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (mViewModel != null) {
+        setHasOptionsMenu(true);
+
+        if (Validator.validNotNull(mViewModel)) {
             mViewModel.onCreate();
         }
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
 
-        if (mViewModel != null) {
+        if (Validator.validNotNull(mViewModel)) {
             mViewModel.onStart();
         }
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
 
-        if (mViewModel != null) {
+        if (Validator.validNotNull(mViewModel)) {
             mViewModel.onStop();
         }
     }
@@ -62,19 +77,31 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
     public void onDestroy() {
         super.onDestroy();
 
-        if (mViewModel != null) {
+        if (Validator.validNotNull(mViewModel)) {
             mViewModel.onDestroy();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK && Validator.validNotNull(mViewModel)) {
+            mViewModel.onResult(requestCode);
         }
     }
 
     //endregion
 
-    //region Protected Methods
+    //region Override method
 
-    protected void setBindingContentView(LayoutInflater inflater, @Nullable ViewGroup container, int layoutResId, int variableId) {
-        mViewDataBinding = DataBindingUtil.inflate(inflater, layoutResId, container, false);
-        mViewDataBinding.setVariable(variableId, mViewModel);
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        super.onPrepareOptionsMenu(menu);
     }
+
+    //endregion
+
+    //region Protected Methods
 
     protected final void register() {
         EventBus eventBus = EventBus.getDefault();
@@ -88,6 +115,28 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
         if (eventBus.isRegistered(this)) {
             eventBus.unregister(this);
         }
+
+    }protected final void post(Object object) {
+        EventBus.getDefault()
+                .post(object);
+    }
+
+    protected final void postSticky(Object object) {
+        EventBus.getDefault()
+                .postSticky(object);
+    }
+
+    //endregion
+
+    //region RefreshDataListener implement
+
+    @Override
+    public void onLoad() {
+
+    }
+
+    @Override
+    public void onRefresh() {
 
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_android"
+        id="@+id/tab_search"
+        title="@string/search"/>
+    <tab
+        icon="@drawable/ic_android"
+        id="@+id/tab_bookings"
+        title="@string/bookings"/>
+    <tab
+        icon="@drawable/ic_android"
+        id="@+id/tab_favorites"
+        title="@string/favorites"/>
+    <tab
+        icon="@drawable/ic_android"
+        id="@+id/tab_insurance"
+        title="@string/insurance"/>
+    <tab
+        icon="@drawable/ic_android"
+        id="@+id/tab_account"
+        title="@string/account"/>
+</tabs>

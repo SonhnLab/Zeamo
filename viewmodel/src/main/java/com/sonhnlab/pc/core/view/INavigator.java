@@ -83,6 +83,4 @@ public interface INavigator {
      */
     boolean isBusyIndicatorShowing();
 
-    void showOptionsMessage(String title, String[] options, IOptionCallback callback);
-
 }

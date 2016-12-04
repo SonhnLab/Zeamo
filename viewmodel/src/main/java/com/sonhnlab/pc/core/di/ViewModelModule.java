@@ -1,9 +1,15 @@
 package com.sonhnlab.pc.core.di;
 
 import com.sonhnlab.pc.core.view.INavigator;
+import com.sonhnlab.pc.core.viewmodel.AccountViewModel;
+import com.sonhnlab.pc.core.viewmodel.BookingsViewModel;
 import com.sonhnlab.pc.core.viewmodel.CreateAccountViewModel;
+import com.sonhnlab.pc.core.viewmodel.FavoritesViewModel;
 import com.sonhnlab.pc.core.viewmodel.ForgotPasswordViewModel;
+import com.sonhnlab.pc.core.viewmodel.InsuranceViewModel;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
+import com.sonhnlab.pc.core.viewmodel.MainViewModel;
+import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
 import com.sonhnlab.pc.core.viewmodel.WelcomeViewModel;
 
 import javax.inject.Singleton;
@@ -42,6 +48,42 @@ public class ViewModelModule {
     @Singleton
     ForgotPasswordViewModel providesForgotPasswordViewModel (INavigator navigator) {
         return new ForgotPasswordViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    MainViewModel providesMainViewModel (INavigator navigator) {
+        return new MainViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    SearchViewModel providesSearchViewModel (INavigator navigator) {
+        return new SearchViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    BookingsViewModel providesBookingsViewModel (INavigator navigator) {
+        return new BookingsViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    FavoritesViewModel providesFavoritesViewModel (INavigator navigator) {
+        return new FavoritesViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    InsuranceViewModel providesInsuranceViewModel (INavigator navigator) {
+        return new InsuranceViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    AccountViewModel providesAccountViewModel (INavigator navigator) {
+        return new AccountViewModel(navigator);
     }
 
     //endregion
