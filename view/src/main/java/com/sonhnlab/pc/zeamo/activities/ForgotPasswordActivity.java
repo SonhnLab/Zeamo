@@ -39,7 +39,7 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
 
     //endregion
 
-    //region Override method
+    //region Lifecycle
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,6 +62,17 @@ public class ForgotPasswordActivity extends BaseActivity<ActivityForgotPasswordB
         setupToolbar();
         setupParent(findViewById(R.id.layout_forgot_password));
     }
+
+    //endregion
+
+    //region Override method
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
 
     //endregion
 

@@ -2,8 +2,14 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@android:color/white</color>
     
     <color name="toolbar_title">#093478</color>
     <color name="validate_error">#F44336</color>
+
+    <!-- Bottom Bar Color.-->
+    <color name="tab_inactive">#007360</color>
+    <color name="tab_active">#0bb8a2</color>
+
+    <!-- Bottom Bar Color End.-->
 </resources>

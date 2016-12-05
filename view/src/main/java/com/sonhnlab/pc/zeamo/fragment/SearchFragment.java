@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.core.view.BaseFragment;
 import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
 import com.sonhnlab.pc.zeamo.App;
-import com.sonhnlab.pc.zeamo.databinding.FragmentAccountBinding;
+import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.databinding.FragmentSearchBinding;
 
 /**
