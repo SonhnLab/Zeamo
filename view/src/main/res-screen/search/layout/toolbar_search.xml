@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sonhnlab.pc.core.viewmodel.SearchViewModel"/>
+
+    </data>
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_search"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:theme="@style/AppTheme.PopupOverlay"
+            app:titleTextAppearance="@style/Toolbar.Title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_search_bar"
+                android:background="@drawable/textfill_search"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/padding_search_bar"
+                android:paddingStart="@dimen/padding_search_bar">
+
+
+                <EditText
+                    android:id="@+id/edt_search_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/search_hint"
+                    android:inputType="text|textCapSentences"
+                    android:maxLines="1"
+                    app:font="@{@string/open_sans_regular}"/>
+
+                <ImageView
+                    android:id="@+id/im_search_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/marginStart_search_bar"
+                    android:layout_marginStart="@dimen/marginStart_search_bar"
+                    android:clickable="true"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/state_close_button"
+                    android:visibility="gone"
+                    tools:ignore="VectorDrawableCompat"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+</layout>

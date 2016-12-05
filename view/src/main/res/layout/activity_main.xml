@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".activity.MainActivity">
 
-        <include layout="@layout/toolbar"/>
+        <!--<include layout="@layout/toolbar"/>-->
 
         <com.sonhnlab.pc.zeamo.view.HoldViewPager
             android:id="@+id/hold_view_pager"

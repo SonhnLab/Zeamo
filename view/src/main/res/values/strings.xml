@@ -40,4 +40,9 @@
     <string name="forgot_tv_description">To reset your password, enter your\n
         email and we\'ll send you\ninformation on how to reset it.</string>
 
+    <!--Define Search String.-->
+    <string name="search_hint">Search nearby</string>
+
+    <!--End Define Search String.-->
+
 </resources>

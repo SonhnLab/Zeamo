@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         super.onCreate(savedInstanceState);
 
         setBindingContentView(R.layout.activity_main, BR.viewModel);
-        setToolbar(R.id.toolbar, false);
-        setTitle(R.id.toolbar_title, R.string.search);
+//        setToolbar(R.id.toolbar, false);
+//        setTitle(R.id.toolbar_title, R.string.search);
 
         ActivityMainBinding binding = getViewDataBinding();
         binding.holdViewPager.setOffscreenPageLimit(5);
@@ -85,37 +85,37 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             case R.id.tab_search:
                 viewPager.setCurrentItem(0, false);
 
-                setTitle(R.id.toolbar_title, R.string.search);
-                setNavigationIcon(-1);
-                setTitleIcon(-1);
+//                setTitle(R.id.toolbar_title, R.string.search);
+//                setNavigationIcon(-1);
+//                setTitleIcon(-1);
                 break;
             case R.id.tab_bookings:
                 viewPager.setCurrentItem(1, false);
 
-                setTitle(R.id.toolbar_title, R.string.bookings);
-                setNavigationIcon(-1);
-                setTitleIcon(-1);
+//                setTitle(R.id.toolbar_title, R.string.bookings);
+//                setNavigationIcon(-1);
+//                setTitleIcon(-1);
                 break;
             case R.id.tab_favorites:
                 viewPager.setCurrentItem(2, false);
 
-                setTitle(R.id.toolbar_title, R.string.favorites);
-                setNavigationIcon(-1);
-                setTitleIcon(-1);
+//                setTitle(R.id.toolbar_title, R.string.favorites);
+//                setNavigationIcon(-1);
+//                setTitleIcon(-1);
                 break;
             case R.id.tab_insurance:
                 viewPager.setCurrentItem(3, false);
 
-                setTitle(R.id.toolbar_title, R.string.insurance);
-                setNavigationIcon(-1);
-                setTitleIcon(-1);
+//                setTitle(R.id.toolbar_title, R.string.insurance);
+//                setNavigationIcon(-1);
+//                setTitleIcon(-1);
                 break;
             case R.id.tab_account:
                 viewPager.setCurrentItem(4, false);
 
-                setTitle(R.id.toolbar_title, R.string.account);
-                setNavigationIcon(-1);
-                setTitleIcon(-1);
+//                setTitle(R.id.toolbar_title, R.string.account);
+//                setNavigationIcon(-1);
+//                setTitleIcon(-1);
                 break;
             default:
                 break;

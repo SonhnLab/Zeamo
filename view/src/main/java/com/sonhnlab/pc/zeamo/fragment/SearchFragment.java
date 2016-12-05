@@ -3,9 +3,15 @@ package com.sonhnlab.pc.zeamo.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.sonhnlab.pc.core.view.BaseFragment;
 import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
@@ -45,10 +51,53 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
                 false
         );
         binding.setViewModel(mViewModel);
+
+        Toolbar toolbar = (Toolbar) binding.getRoot().findViewById(R.id.toolbar_search);
+        if (toolbar != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        }
+
+        final ImageView closeButton = (ImageView) binding.getRoot().findViewById(R.id.im_search_close);
+        final EditText search = (EditText) binding.getRoot().findViewById(R.id.edt_search_bar);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() != 0) {
+                    closeButton.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search.setText("");
+                search.setHint("Search nearby");
+                closeButton.setVisibility(View.GONE);
+            }
+        });
+
         setViewDataBinding(binding);
 
         return binding.getRoot();
     }
+
+    //endregion
+
+    //region Private method
+
+
 
     //endregion
 }
