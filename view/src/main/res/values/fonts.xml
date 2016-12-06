@@ -2,5 +2,14 @@
 <resources>
 
     <string name="open_sans_regular">OpenSans-Regular.ttf</string>
+    <string name="open_sans_bold">OpenSans-Bold.ttf</string>
+    <string name="open_sans_bold_italic">OpenSans-BoldItalic.ttf</string>
+    <string name="open_sans_extra_bold">OpenSans-ExtraBold.ttf</string>
+    <string name="open_sans_extra_bold_italic">OpenSans-ExtraBoldItalic.ttf</string>
+    <string name="open_sans_italic">OpenSans-Italic.ttf</string>
+    <string name="open_sans_light">OpenSans-Light.ttf</string>
+    <string name="open_sans_light_italic">OpenSans-LightItalic.ttf</string>
+    <string name="open_sans_semi_bold">OpenSans-Semibold.ttf</string>
+    <string name="open_sans_semi_bold_italic">OpenSans-SemiboldItalic.ttf</string>
 
 </resources>

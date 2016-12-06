@@ -42,5 +42,9 @@
     <dimen name="padding_search_bar">12dp</dimen>
     <dimen name="marginEnd_search_bar">12dp</dimen>
     <dimen name="marginStart_search_bar">12dp</dimen>
+    
+    <!-- Divider -->
+    <dimen name="height_divider">1dp</dimen>
+    <dimen name="inset_divider">16dp</dimen>
 
 </resources>

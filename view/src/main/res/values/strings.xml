@@ -42,7 +42,7 @@
 
     <!--Define Search String.-->
     <string name="search_hint">Search nearby</string>
-
+    <string name="search_tv_popular">Popular Searches</string>
     <!--End Define Search String.-->
 
 </resources>

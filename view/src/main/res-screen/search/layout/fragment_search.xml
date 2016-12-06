@@ -17,20 +17,54 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/toolbar_search"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <include layout="@layout/toolbar_search"/>
+
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Search Fragment"
-                android:textSize="30sp"/>
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="22dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="22dp"
+                        android:background="#e2e7ee"
+                        android:text="@string/search_tv_popular"
+                        android:textColor="#22324b"
+                        android:textSize="22sp"
+                        app:font="@{@string/open_sans_bold}"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#C7C7CC"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:scrollbars="vertical"
+                        app:items="@{viewModel.sports}"/>
+
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
 
         </LinearLayout>
+
     </android.support.design.widget.CoordinatorLayout>
+
 </layout>

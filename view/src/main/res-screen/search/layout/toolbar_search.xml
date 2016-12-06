@@ -53,6 +53,9 @@
                     android:background="@android:color/transparent"
                     android:hint="@string/search_hint"
                     android:inputType="text|textCapSentences"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="#b0b7bf"
+                    android:textColor="#16283e"
                     android:maxLines="1"
                     app:font="@{@string/open_sans_regular}"/>
 

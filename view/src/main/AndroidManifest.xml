@@ -24,6 +24,7 @@
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".activities.MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:configChanges="screenSize|orientation"
             android:screenOrientation="portrait">
         </activity>
