@@ -35,28 +35,32 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_margin="@dimen/margin_search_bar"
                 android:background="@drawable/textfill_search"
                 android:orientation="horizontal"
                 android:paddingEnd="@dimen/padding_search_bar"
                 android:paddingStart="@dimen/padding_search_bar">
 
-
                 <EditText
                     android:id="@+id/edt_search_bar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_search"
-                    android:drawablePadding="12dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@drawable/ic_search"
                     android:hint="@string/search_hint"
-                    android:inputType="text|textCapSentences"
                     android:imeOptions="actionDone"
-                    android:textColorHint="#b0b7bf"
-                    android:textColor="#16283e"
+                    android:inputType="text|textCapSentences"
+                    android:textCursorDrawable="@color/colorPrimary"
                     android:maxLines="1"
+                    android:textColor="#16283e"
+                    android:textColorHint="#b0b7bf"
+                    android:nextFocusUp="@id/edt_search_bar"
+                    android:nextFocusLeft="@id/edt_search_bar"
                     app:font="@{@string/open_sans_regular}"/>
 
                 <ImageView

@@ -37,9 +37,9 @@
                 android:layout_gravity="bottom"
                 android:background="@android:color/white"
                 app:bb_activeTabColor="@color/tab_active"
-                app:bb_behavior="shifting"
                 app:bb_inActiveTabColor="@color/tab_inactive"
                 app:bb_showShadow="false"
+                app:bb_titleTypeFace="fonts/OpenSans-Regular.ttf"
                 app:bb_tabXmlResource="@xml/bottom_bar_tabs"
                 app:bb_titleTextAppearance="@style/BottomTabTitleTextAppearance"/>
 
