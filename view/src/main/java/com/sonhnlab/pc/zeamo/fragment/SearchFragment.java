@@ -17,15 +17,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseFragment;
 import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
+import com.sonhnlab.pc.model.entity.Sport;
 import com.sonhnlab.pc.zeamo.App;
 import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.adapter.SportListAdapter;
 import com.sonhnlab.pc.zeamo.common.DividerItemDecoration;
 import com.sonhnlab.pc.zeamo.databinding.FragmentSearchBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SonhnLab on 11/27/2016.
@@ -33,9 +38,19 @@ import com.sonhnlab.pc.zeamo.databinding.FragmentSearchBinding;
 
 public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchViewModel> {
 
-    //region Constructor
+    //region Property
 
-    private EditText mSearch;
+    private RecyclerView mRecyclerView;
+
+    private LinearLayoutManager mLayoutManager;
+
+    public SportListAdapter mAdapter;
+
+    public EditText mSearch;
+
+    //endregion
+
+    //region Constructor
 
     public static SearchFragment newInstance() {
         return new SearchFragment();
@@ -68,23 +83,57 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
             ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         }
 
+        //Setup RecyclerView
+        mRecyclerView = (RecyclerView) binding.getRoot().findViewById(R.id.recycler_view_search);
+        mAdapter = new SportListAdapter();
+        mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this.getContext()));
+
+        mRecyclerView.setNestedScrollingEnabled(false);
+        mAdapter.setViewModel(mViewModel);
+        mRecyclerView.setAdapter(mAdapter);
+
         //Setup SearchBar
         final ImageView closeButton = (ImageView) binding.getRoot().findViewById(R.id.im_search_close);
+        final TextView hideText = (TextView) binding.getRoot().findViewById(R.id.tv_search_popular);
         mSearch = (EditText) binding.getRoot().findViewById(R.id.edt_search_bar);
 
         mSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (!charSequence.toString().isEmpty()) {
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                if (!mSearch.getText().toString().matches("")) {
                     closeButton.setVisibility(View.VISIBLE);
+                    hideText.setVisibility(View.GONE);
                 } else {
                     closeButton.setVisibility(View.INVISIBLE);
+                    hideText.setVisibility(View.VISIBLE);
                 }
+                charSequence = charSequence.toString().toLowerCase();
+                final List<Sport> filteredList = new ArrayList<>();
+
+                for (int i = 0; i < mViewModel.getSports().size(); i++) {
+                    final String nameSport = mViewModel.getSports().get(i).getName().toLowerCase();
+                    if (nameSport.contains(charSequence)) {
+                        filteredList.add(mViewModel.getSports().get(i));
+                    }
+                }
+
+                mRecyclerView.setLayoutManager(mLayoutManager);
+                mAdapter = new SportListAdapter(filteredList, getContext());
+                mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext()));
+
+                mRecyclerView.setNestedScrollingEnabled(false);
+                mAdapter.setViewModel(mViewModel);
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -101,18 +150,6 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
                 closeButton.setVisibility(View.INVISIBLE);
             }
         });
-
-        //Setup RecyclerView
-        RecyclerView recyclerView = (RecyclerView) binding.getRoot().findViewById(R.id.recycler_view_search);
-        SportListAdapter adapter = new SportListAdapter();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this.getContext()));
-
-        recyclerView.setNestedScrollingEnabled(false);
-        adapter.setViewModel(mViewModel);
-        recyclerView.setAdapter(adapter);
 
         //Setup Parent
         setupParent(binding.getRoot().findViewById(R.id.layout_search));

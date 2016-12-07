@@ -1,5 +1,6 @@
 package com.sonhnlab.pc.zeamo.adapter;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +21,24 @@ import java.util.List;
  */
 
 public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, List<Sport>>{
+
+    //region Property
+
+    private Context mContext;
+
+    //endregion
+
+    //region Constructor
+
+    public SportListAdapter(List<Sport> sports, Context context) {
+        mData = sports;
+        mContext = context;
+    }
+
+    public SportListAdapter() {
+    }
+
+    //endregion
 
     //region Override method
 
