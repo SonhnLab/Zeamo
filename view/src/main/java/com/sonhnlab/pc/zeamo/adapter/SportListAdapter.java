@@ -46,7 +46,7 @@ public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, L
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewDataBinding binding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()),
-                R.layout.item_sport,
+                R.layout.item_search,
                 parent,
                 false
         );
@@ -54,8 +54,8 @@ public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, L
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ViewDataBinding binding = ((ViewHolder) holder).getViewDataBinding();
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+        final ViewDataBinding binding = ((ViewHolder) holder).getViewDataBinding();
 
         binding.setVariable(BR.sport, mData.get(position));
         binding.setVariable(BR.viewModel, mViewModel);
@@ -69,4 +69,5 @@ public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, L
     }
 
     //endregion
+
 }

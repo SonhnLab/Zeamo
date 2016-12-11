@@ -6,8 +6,10 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 
+import com.sonhnlab.pc.core.R;
 import com.sonhnlab.pc.core.helper.Validator;
 import com.sonhnlab.pc.core.viewmodel.base.BaseViewModel;
 
@@ -47,7 +49,6 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setHasOptionsMenu(true);
 
         if (Validator.validNotNull(mViewModel)) {
@@ -116,7 +117,9 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
             eventBus.unregister(this);
         }
 
-    }protected final void post(Object object) {
+    }
+
+    protected final void post(Object object) {
         EventBus.getDefault()
                 .post(object);
     }
@@ -138,6 +141,29 @@ public class BaseFragment<B extends ViewDataBinding, V extends BaseViewModel> ex
     @Override
     public void onRefresh() {
 
+    }
+
+    //endregion
+
+    //region Public method
+
+    public void replaceFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.replace(R.id.layout_container, fragment);
+        transaction.commit();
+        getChildFragmentManager().executePendingTransactions();
+    }
+
+    public boolean popFragment() {
+        boolean isPop = false;
+        if (getChildFragmentManager().getBackStackEntryCount() > 0) {
+            isPop = true;
+            getChildFragmentManager().popBackStack();
+        }
+        return isPop;
     }
 
     //endregion

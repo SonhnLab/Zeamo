@@ -7,7 +7,7 @@ import com.sonhnlab.pc.zeamo.fragment.AccountFragment;
 import com.sonhnlab.pc.zeamo.fragment.BookingsFragment;
 import com.sonhnlab.pc.zeamo.fragment.FavoritesFragment;
 import com.sonhnlab.pc.zeamo.fragment.InsuranceFragment;
-import com.sonhnlab.pc.zeamo.fragment.SearchFragment;
+import com.sonhnlab.pc.zeamo.fragment.SearchContainerFragment;
 
 /**
  * Created by SonhnLab on 11/27/2016.
@@ -29,7 +29,7 @@ public class MainTabAdapter extends TabAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return SearchFragment.newInstance();
+                return SearchContainerFragment.newInstance();
             case 1:
                 return BookingsFragment.newInstance();
             case 2:

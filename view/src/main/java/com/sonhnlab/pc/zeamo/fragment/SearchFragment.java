@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseFragment;
@@ -28,6 +30,7 @@ import com.sonhnlab.pc.zeamo.R;
 import com.sonhnlab.pc.zeamo.adapter.SportListAdapter;
 import com.sonhnlab.pc.zeamo.common.DividerItemDecoration;
 import com.sonhnlab.pc.zeamo.databinding.FragmentSearchBinding;
+import com.sonhnlab.pc.zeamo.listener.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,7 @@ import java.util.List;
  * Created by SonhnLab on 11/27/2016.
  */
 
-public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchViewModel> {
+public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchViewModel> {
 
     //region Property
 
@@ -47,6 +50,8 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
     public SportListAdapter mAdapter;
 
     public EditText mSearch;
+
+    public CardView mCardView;
 
     //endregion
 
@@ -95,6 +100,22 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
         mAdapter.setViewModel(mViewModel);
         mRecyclerView.setAdapter(mAdapter);
 
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(), "" + mViewModel.getSports().get(position).getName(), Toast.LENGTH_SHORT).show();
+                BookingsFragment bookingsFragment = new BookingsFragment();
+                Bundle bundle = new Bundle();
+                bookingsFragment.setArguments(bundle);
+                ((BaseFragment) getParentFragment()).replaceFragment(bookingsFragment, true);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        }));
+
         //Setup SearchBar
         final ImageView closeButton = (ImageView) binding.getRoot().findViewById(R.id.im_search_close);
         final TextView hideText = (TextView) binding.getRoot().findViewById(R.id.tv_search_popular);
@@ -112,7 +133,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
                     closeButton.setVisibility(View.VISIBLE);
                     hideText.setVisibility(View.GONE);
                 } else {
-                    closeButton.setVisibility(View.INVISIBLE);
+                    closeButton.setVisibility(View.GONE);
                     hideText.setVisibility(View.VISIBLE);
                 }
                 charSequence = charSequence.toString().toLowerCase();
@@ -147,7 +168,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
             public void onClick(View view) {
                 mSearch.setText("");
                 mSearch.setHint("Search nearby");
-                closeButton.setVisibility(View.INVISIBLE);
+                closeButton.setVisibility(View.GONE);
             }
         });
 
@@ -165,13 +186,13 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding,SearchVie
 
     public void setupParent(View view) {
         //Set up touch listener for non-text box views to hide keyboard.
-        if(!(view instanceof EditText)) {
+        if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         if (mSearch.isFocused()) {
                             Rect outRect = new Rect();
-                            if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())){
+                            if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                                 mSearch.clearFocus();
                                 KeyboardHelper.hidden(getContext(), getActivity().getCurrentFocus());
                             }
