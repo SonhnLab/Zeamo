@@ -9,7 +9,8 @@ import com.sonhnlab.pc.core.viewmodel.ForgotPasswordViewModel;
 import com.sonhnlab.pc.core.viewmodel.InsuranceViewModel;
 import com.sonhnlab.pc.core.viewmodel.LoginViewModel;
 import com.sonhnlab.pc.core.viewmodel.MainViewModel;
-import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
+import com.sonhnlab.pc.core.viewmodel.PlaceViewModel;
+import com.sonhnlab.pc.core.viewmodel.SportViewModel;
 import com.sonhnlab.pc.core.viewmodel.WelcomeViewModel;
 
 import javax.inject.Singleton;
@@ -58,8 +59,8 @@ public class ViewModelModule {
 
     @Provides
     @Singleton
-    SearchViewModel providesSearchViewModel (INavigator navigator) {
-        return new SearchViewModel(navigator);
+    SportViewModel providesSearchViewModel (INavigator navigator) {
+        return new SportViewModel(navigator);
     }
 
     @Provides
@@ -84,6 +85,12 @@ public class ViewModelModule {
     @Singleton
     AccountViewModel providesAccountViewModel (INavigator navigator) {
         return new AccountViewModel(navigator);
+    }
+
+    @Provides
+    @Singleton
+    PlaceViewModel providesPlaceViewModel (INavigator navigator) {
+        return new PlaceViewModel(navigator);
     }
 
     //endregion

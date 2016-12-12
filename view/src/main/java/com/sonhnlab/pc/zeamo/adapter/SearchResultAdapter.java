@@ -1,6 +1,5 @@
 package com.sonhnlab.pc.zeamo.adapter;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
@@ -9,44 +8,26 @@ import android.view.ViewGroup;
 
 import com.sonhnlab.pc.core.view.BaseRecyclerViewAdapter;
 import com.sonhnlab.pc.core.view.ViewHolder;
-import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
-import com.sonhnlab.pc.model.entity.Sport;
+import com.sonhnlab.pc.core.viewmodel.PlaceViewModel;
+import com.sonhnlab.pc.model.entity.Place;
 import com.sonhnlab.pc.zeamo.BR;
 import com.sonhnlab.pc.zeamo.R;
 
 import java.util.List;
 
 /**
- * Created by SonhnLab on 12/6/2016.
+ * Created by SonhnLab on 12/12/2016.
  */
 
-public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, List<Sport>>{
+public class SearchResultAdapter extends BaseRecyclerViewAdapter<PlaceViewModel, List<Place>> {
 
-    //region Property
-
-    private Context mContext;
-
-    //endregion
-
-    //region Constructor
-
-    public SportListAdapter(List<Sport> sports, Context context) {
-        mData = sports;
-        mContext = context;
-    }
-
-    public SportListAdapter() {
-    }
-
-    //endregion
-
-    //region Override method
+    //region Lifecycle
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewDataBinding binding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()),
-                R.layout.item_search,
+                R.layout.item_search_result,
                 parent,
                 false
         );
@@ -54,10 +35,10 @@ public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, L
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final ViewDataBinding binding = ((ViewHolder) holder).getViewDataBinding();
 
-        binding.setVariable(BR.sport, mData.get(position));
+        binding.setVariable(BR.place, mData.get(position));
         binding.setVariable(BR.viewModel, mViewModel);
 
         binding.executePendingBindings();
@@ -69,5 +50,4 @@ public class SportListAdapter extends BaseRecyclerViewAdapter<SearchViewModel, L
     }
 
     //endregion
-
 }

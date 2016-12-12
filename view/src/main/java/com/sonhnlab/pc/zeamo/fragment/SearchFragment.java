@@ -23,11 +23,11 @@ import android.widget.Toast;
 
 import com.sonhnlab.pc.core.helper.KeyboardHelper;
 import com.sonhnlab.pc.core.view.BaseFragment;
-import com.sonhnlab.pc.core.viewmodel.SearchViewModel;
+import com.sonhnlab.pc.core.viewmodel.SportViewModel;
 import com.sonhnlab.pc.model.entity.Sport;
 import com.sonhnlab.pc.zeamo.App;
 import com.sonhnlab.pc.zeamo.R;
-import com.sonhnlab.pc.zeamo.adapter.SportListAdapter;
+import com.sonhnlab.pc.zeamo.adapter.SearchAdapter;
 import com.sonhnlab.pc.zeamo.common.DividerItemDecoration;
 import com.sonhnlab.pc.zeamo.databinding.FragmentSearchBinding;
 import com.sonhnlab.pc.zeamo.listener.RecyclerItemClickListener;
@@ -39,7 +39,7 @@ import java.util.List;
  * Created by SonhnLab on 11/27/2016.
  */
 
-public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchViewModel> {
+public class SearchFragment extends BaseFragment<FragmentSearchBinding, SportViewModel> {
 
     //region Property
 
@@ -47,7 +47,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
 
     private LinearLayoutManager mLayoutManager;
 
-    public SportListAdapter mAdapter;
+    public SearchAdapter mAdapter;
 
     public EditText mSearch;
 
@@ -89,8 +89,8 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
         }
 
         //Setup RecyclerView
-        mRecyclerView = (RecyclerView) binding.getRoot().findViewById(R.id.recycler_view_search);
-        mAdapter = new SportListAdapter();
+        mRecyclerView = (RecyclerView) binding.getRoot().findViewById(R.id.recycler_view_search_result);
+        mAdapter = new SearchAdapter();
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -104,10 +104,10 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(getContext(), "" + mViewModel.getSports().get(position).getName(), Toast.LENGTH_SHORT).show();
-                BookingsFragment bookingsFragment = new BookingsFragment();
+                SearchResultFragment searchResultFragment = new SearchResultFragment();
                 Bundle bundle = new Bundle();
-                bookingsFragment.setArguments(bundle);
-                ((BaseFragment) getParentFragment()).replaceFragment(bookingsFragment, true);
+                searchResultFragment.setArguments(bundle);
+                ((BaseFragment) getParentFragment()).replaceFragment(searchResultFragment, true);
             }
 
             @Override
@@ -147,7 +147,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
                 }
 
                 mRecyclerView.setLayoutManager(mLayoutManager);
-                mAdapter = new SportListAdapter(filteredList, getContext());
+                mAdapter = new SearchAdapter(filteredList, getContext());
                 mRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext()));
 
@@ -178,6 +178,20 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding, SearchVi
         setViewDataBinding(binding);
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mSearch.setFocusableInTouchMode(true);
+        mSearch.requestFocus();
+        KeyboardHelper.showSoftKeyboard(getContext(), getActivity().getCurrentFocus());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        KeyboardHelper.hidden(getContext(), getActivity().getCurrentFocus());
     }
 
     //endregion

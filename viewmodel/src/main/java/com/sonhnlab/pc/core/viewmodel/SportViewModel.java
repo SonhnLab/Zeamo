@@ -14,7 +14,7 @@ import java.util.List;
  * Created by SonhnLab on 12/5/2016.
  */
 
-public class SearchViewModel extends BaseViewModel {
+public class SportViewModel extends BaseViewModel {
 
     //region Properties
 
@@ -39,7 +39,7 @@ public class SearchViewModel extends BaseViewModel {
 
     //region Constructors
 
-    public SearchViewModel(INavigator navigator) {
+    public SportViewModel(INavigator navigator) {
         super(navigator);
     }
 

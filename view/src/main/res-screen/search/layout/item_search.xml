@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.sonhnlab.pc.core.viewmodel.SearchViewModel"/>
+            type="com.sonhnlab.pc.core.viewmodel.SportViewModel"/>
 
         <variable
             name="sport"

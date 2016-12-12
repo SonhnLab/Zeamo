@@ -11,6 +11,7 @@ import com.sonhnlab.pc.zeamo.fragment.BookingsFragment;
 import com.sonhnlab.pc.zeamo.fragment.FavoritesFragment;
 import com.sonhnlab.pc.zeamo.fragment.InsuranceFragment;
 import com.sonhnlab.pc.zeamo.fragment.SearchFragment;
+import com.sonhnlab.pc.zeamo.fragment.SearchResultFragment;
 
 import javax.inject.Singleton;
 
@@ -41,6 +42,7 @@ public interface AppComponent {
     void inject(FavoritesFragment favoritesFragment);
     void inject(InsuranceFragment insuranceFragment);
     void inject(AccountFragment accountFragment);
+    void inject(SearchResultFragment searchResultFragment);
 
     //endregion
 }
